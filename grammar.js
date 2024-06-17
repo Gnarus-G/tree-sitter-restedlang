@@ -25,15 +25,17 @@ module.exports = grammar({
 
     attribute: ($) => seq("@", $.identifer, optional($.parameter_list)),
 
-    _expression: ($) => choice($.identifer, $.number, $.string, $.boolean),
-    identifer: (_$) => /[a-z]\w*/,
-    constant_identifier: (_$) => /[A-Z_]+/,
+    _expression: ($) =>
+      choice($.call, $.identifer, $.number, $.string, $.boolean, "null"),
+    identifer: (_$) => /[a-z_][_\w]*/,
+    constant_identifier: (_$) => /[A-Z_][A-Z_\d]*/,
     number: (_$) => /\d+(\.\d*)?/,
-    string: (_$) => seq('"', /.*/, '"'),
+    string: (_$) => seq('"', /[^"]*/, '"'),
     boolean: (_$) => choice("true", "false"),
-    call: ($) => seq($.identifer, $.parameter_list),
+    call: ($) => prec(1, seq($._expression, $.parameter_list)),
 
-    parameter_list: ($) => seq("(", choice($._expression, $.line_comment), ")"),
+    parameter_list: ($) =>
+      seq("(", optional(choice($._expression, $.line_comment)), ")"),
 
     block: ($) => seq("{", repeat($._statement), "}"),
 
