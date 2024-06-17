@@ -76,10 +76,6 @@
         {
           "type": "header_statement",
           "named": true
-        },
-        {
-          "type": "line_comment",
-          "named": true
         }
       ]
     }
@@ -353,10 +349,6 @@
           "named": true
         },
         {
-          "type": "line_comment",
-          "named": true
-        },
-        {
           "type": "number",
           "named": true
         },
@@ -382,11 +374,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "line_comment",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "object",
@@ -487,10 +474,6 @@
         },
         {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "line_comment",
           "named": true
         },
         {
@@ -671,10 +654,6 @@
     }
   },
   {
-    "type": "\n",
-    "named": false
-  },
-  {
     "type": "\"",
     "named": false
   },
@@ -692,10 +671,6 @@
   },
   {
     "type": ",",
-    "named": false
-  },
-  {
-    "type": "//",
     "named": false
   },
   {
@@ -753,6 +728,10 @@
   {
     "type": "let",
     "named": false
+  },
+  {
+    "type": "line_comment",
+    "named": true
   },
   {
     "type": "null",

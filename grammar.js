@@ -3,14 +3,7 @@ module.exports = grammar({
 
   rules: {
     source_file: ($) => repeat($.item),
-    item: ($) =>
-      choice(
-        $._declaration,
-        $._expression,
-        $.attribute,
-        $.request,
-        $.line_comment
-      ),
+    item: ($) => choice($._declaration, $._expression, $.attribute, $.request),
 
     request: ($) =>
       prec.right(seq($.request_method, $.endpoint, optional($.block))),
@@ -57,18 +50,18 @@ module.exports = grammar({
         field("value", $._expression)
       ),
 
-    parameter_list: ($) =>
-      seq("(", optional(choice($._expression, $.line_comment)), ")"),
+    parameter_list: ($) => seq("(", optional($._expression), ")"),
 
     block: ($) => seq("{", repeat($._statement), "}"),
 
-    _statement: ($) =>
-      choice($.header_statement, $.body_statement, $.line_comment),
+    _statement: ($) => choice($.header_statement, $.body_statement),
     header_statement: ($) => seq("header", $.string, $._expression),
     body_statement: ($) => seq("body", $._expression),
 
-    line_comment: (_$) => seq("//", /.*/, "\n"),
+    line_comment: (_$) => token(seq("//", /[^\r\n]*/)),
   },
+
+  extras: ($) => [$.line_comment, /\s/],
 });
 
 /**

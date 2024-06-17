@@ -26,10 +26,6 @@
         {
           "type": "SYMBOL",
           "name": "request"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "line_comment"
         }
       ]
     },
@@ -484,17 +480,8 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "_expression"
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "line_comment"
-                }
-              ]
+              "type": "SYMBOL",
+              "name": "_expression"
             },
             {
               "type": "BLANK"
@@ -537,10 +524,6 @@
         {
           "type": "SYMBOL",
           "name": "body_statement"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "line_comment"
         }
       ]
     },
@@ -575,24 +558,27 @@
       ]
     },
     "line_comment": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "//"
-        },
-        {
-          "type": "PATTERN",
-          "value": ".*"
-        },
-        {
-          "type": "STRING",
-          "value": "\n"
-        }
-      ]
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "//"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[^\\r\\n]*"
+          }
+        ]
+      }
     }
   },
   "extras": [
+    {
+      "type": "SYMBOL",
+      "name": "line_comment"
+    },
     {
       "type": "PATTERN",
       "value": "\\s"
