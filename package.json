@@ -1,0 +1,32 @@
+{
+  "name": "tree-sitter-restedlang",
+  "version": "0.0.1",
+  "description": " Grammar definition of the rested language.",
+  "main": "grammar.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gnarus-G/tree-sitter-restedlang.git"
+  },
+  "keywords": [
+    "grammar",
+    "lexer",
+    "parser",
+    "REST",
+    "api",
+    "testing",
+    "rstd",
+    "rested"
+  ],
+  "author": "Gnarus-G",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/Gnarus-G/tree-sitter-restedlang/issues"
+  },
+  "homepage": "https://github.com/Gnarus-G/tree-sitter-restedlang#readme",
+  "dependencies": {
+    "nan": "^2.20.0"
+  }
+}
