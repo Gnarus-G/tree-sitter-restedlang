@@ -1,5 +1,48 @@
 [
   {
+    "type": "array",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "call",
+          "named": true
+        },
+        {
+          "type": "identifer",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "object",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "template_string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "attribute",
     "named": true,
     "fields": {},
@@ -50,6 +93,10 @@
       "required": false,
       "types": [
         {
+          "type": "array",
+          "named": true
+        },
+        {
           "type": "boolean",
           "named": true
         },
@@ -63,6 +110,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "object",
           "named": true
         },
         {
@@ -90,6 +141,10 @@
       "required": true,
       "types": [
         {
+          "type": "array",
+          "named": true
+        },
+        {
           "type": "boolean",
           "named": true
         },
@@ -103,6 +158,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "object",
           "named": true
         },
         {
@@ -129,6 +188,10 @@
       "required": true,
       "types": [
         {
+          "type": "array",
+          "named": true
+        },
+        {
           "type": "boolean",
           "named": true
         },
@@ -146,6 +209,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "object",
           "named": true
         },
         {
@@ -168,6 +235,10 @@
       "required": false,
       "types": [
         {
+          "type": "array",
+          "named": true
+        },
+        {
           "type": "boolean",
           "named": true
         },
@@ -181,6 +252,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "object",
           "named": true
         },
         {
@@ -211,6 +286,10 @@
       "required": true,
       "types": [
         {
+          "type": "array",
+          "named": true
+        },
+        {
           "type": "boolean",
           "named": true
         },
@@ -224,6 +303,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "object",
           "named": true
         },
         {
@@ -245,6 +328,10 @@
       "multiple": false,
       "required": false,
       "types": [
+        {
+          "type": "array",
+          "named": true
+        },
         {
           "type": "attribute",
           "named": true
@@ -274,6 +361,10 @@
           "named": true
         },
         {
+          "type": "object",
+          "named": true
+        },
+        {
           "type": "request",
           "named": true
         },
@@ -298,6 +389,83 @@
     "fields": {}
   },
   {
+    "type": "object",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "pair",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "pair",
+    "named": true,
+    "fields": {
+      "key": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifer",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "boolean",
+            "named": true
+          },
+          {
+            "type": "call",
+            "named": true
+          },
+          {
+            "type": "identifer",
+            "named": true
+          },
+          {
+            "type": "null",
+            "named": false
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "object",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "template_string",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "parameter_list",
     "named": true,
     "fields": {},
@@ -305,6 +473,10 @@
       "multiple": false,
       "required": false,
       "types": [
+        {
+          "type": "array",
+          "named": true
+        },
         {
           "type": "boolean",
           "named": true
@@ -323,6 +495,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "object",
           "named": true
         },
         {
@@ -417,6 +593,10 @@
       "required": false,
       "types": [
         {
+          "type": "array",
+          "named": true
+        },
+        {
           "type": "boolean",
           "named": true
         },
@@ -430,6 +610,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "object",
           "named": true
         },
         {
@@ -452,6 +636,10 @@
       "required": true,
       "types": [
         {
+          "type": "array",
+          "named": true
+        },
+        {
           "type": "boolean",
           "named": true
         },
@@ -465,6 +653,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "object",
           "named": true
         },
         {
@@ -499,7 +691,15 @@
     "named": false
   },
   {
+    "type": ",",
+    "named": false
+  },
+  {
     "type": "//",
+    "named": false
+  },
+  {
+    "type": ":",
     "named": false
   },
   {
@@ -508,6 +708,14 @@
   },
   {
     "type": "@",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
     "named": false
   },
   {

@@ -12,7 +12,8 @@ module.exports = grammar({
         $.line_comment
       ),
 
-    request: ($) => seq($.request_method, $.endpoint, optional($.block)),
+    request: ($) =>
+      prec.right(seq($.request_method, $.endpoint, optional($.block))),
     request_method: (_$) => choice("get", "post", "put", "patch", "delete"),
     endpoint: ($) => choice($._expression, $.url_literal, $.pathname_literal),
     url_literal: (_$) => /https?:.*/,
@@ -33,6 +34,8 @@ module.exports = grammar({
         $.string,
         $.template_string,
         $.boolean,
+        $.array,
+        $.object,
         "null"
       ),
     identifer: (_$) => /[a-z_][_\w]*/,
@@ -45,6 +48,14 @@ module.exports = grammar({
     template_chars: (_$) => choice(/[^`${]+/, /\$/),
     template_substitution: ($) => seq("${", $._expression, "}"),
     call: ($) => prec(1, seq($._expression, $.parameter_list)),
+    array: ($) => seq("[", commaSep($._expression), "]"),
+    object: ($) => seq("{", commaSep($.pair), "}"),
+    pair: ($) =>
+      seq(
+        field("key", choice($.identifer, $.string)),
+        ":",
+        field("value", $._expression)
+      ),
 
     parameter_list: ($) =>
       seq("(", optional(choice($._expression, $.line_comment)), ")"),
@@ -59,3 +70,29 @@ module.exports = grammar({
     line_comment: (_$) => seq("//", /.*/, "\n"),
   },
 });
+
+/**
+ * Taken from: https://github.com/tree-sitter/tree-sitter-javascript/blob/master/grammar.js#L1269
+ * Creates a rule to match one or more of the rules separated by a comma
+ *
+ * @param {Rule} rule
+ *
+ * @return {SeqRule}
+ *
+ */
+function commaSep1(rule) {
+  return seq(rule, repeat(seq(",", rule)));
+}
+
+/**
+ * Taken from: https://github.com/tree-sitter/tree-sitter-javascript/blob/master/grammar.js#L1269
+ * Creates a rule to optionally match one or more of the rules separated by a comma
+ *
+ * @param {Rule} rule
+ *
+ * @return {ChoiceRule}
+ *
+ */
+function commaSep(rule) {
+  return optional(commaSep1(rule));
+}
