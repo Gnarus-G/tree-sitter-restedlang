@@ -26,12 +26,24 @@ module.exports = grammar({
     attribute: ($) => seq("@", $.identifer, optional($.parameter_list)),
 
     _expression: ($) =>
-      choice($.call, $.identifer, $.number, $.string, $.boolean, "null"),
+      choice(
+        $.call,
+        $.identifer,
+        $.number,
+        $.string,
+        $.template_string,
+        $.boolean,
+        "null"
+      ),
     identifer: (_$) => /[a-z_][_\w]*/,
     constant_identifier: (_$) => /[A-Z_][A-Z_\d]*/,
     number: (_$) => /\d+(\.\d*)?/,
-    string: (_$) => seq('"', /[^"]*/, '"'),
     boolean: (_$) => choice("true", "false"),
+    string: (_$) => seq('"', /[^"]*/, '"'),
+    template_string: ($) =>
+      seq("`", repeat(choice($.template_chars, $.template_substitution)), "`"),
+    template_chars: (_$) => choice(/[^`${]+/, /\$/),
+    template_substitution: ($) => seq("${", $._expression, "}"),
     call: ($) => prec(1, seq($._expression, $.parameter_list)),
 
     parameter_list: ($) =>

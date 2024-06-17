@@ -205,6 +205,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "template_string"
+        },
+        {
+          "type": "SYMBOL",
           "name": "boolean"
         },
         {
@@ -225,6 +229,19 @@
       "type": "PATTERN",
       "value": "\\d+(\\.\\d*)?"
     },
+    "boolean": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "true"
+        },
+        {
+          "type": "STRING",
+          "value": "false"
+        }
+      ]
+    },
     "string": {
       "type": "SEQ",
       "members": [
@@ -242,16 +259,62 @@
         }
       ]
     },
-    "boolean": {
-      "type": "CHOICE",
+    "template_string": {
+      "type": "SEQ",
       "members": [
         {
           "type": "STRING",
-          "value": "true"
+          "value": "`"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "template_chars"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "template_substitution"
+              }
+            ]
+          }
         },
         {
           "type": "STRING",
-          "value": "false"
+          "value": "`"
+        }
+      ]
+    },
+    "template_chars": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "[^`${]+"
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\$"
+        }
+      ]
+    },
+    "template_substitution": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "${"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        },
+        {
+          "type": "STRING",
+          "value": "}"
         }
       ]
     },
