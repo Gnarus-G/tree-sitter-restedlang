@@ -106,11 +106,11 @@
     },
     "url_literal": {
       "type": "PATTERN",
-      "value": "https?:.*"
+      "value": "https?:[^{]*"
     },
     "pathname_literal": {
       "type": "PATTERN",
-      "value": "\\/.*"
+      "value": "\\/[^{]*"
     },
     "_declaration": {
       "type": "CHOICE",
@@ -151,7 +151,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "identifer"
+          "name": "identifier"
         },
         {
           "type": "STRING",
@@ -172,7 +172,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "identifer"
+          "name": "identifier"
         },
         {
           "type": "CHOICE",
@@ -197,7 +197,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "identifer"
+          "name": "identifier"
         },
         {
           "type": "SYMBOL",
@@ -229,7 +229,7 @@
         }
       ]
     },
-    "identifer": {
+    "identifier": {
       "type": "PATTERN",
       "value": "[a-z_][_\\w]*"
     },
@@ -450,7 +450,7 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "identifer"
+                "name": "identifier"
               },
               {
                 "type": "SYMBOL",

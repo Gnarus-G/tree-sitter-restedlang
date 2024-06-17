@@ -16,20 +16,20 @@ module.exports = grammar({
       prec.right(seq($.request_method, $.endpoint, optional($.block))),
     request_method: (_$) => choice("get", "post", "put", "patch", "delete"),
     endpoint: ($) => choice($._expression, $.url_literal, $.pathname_literal),
-    url_literal: (_$) => /https?:.*/,
-    pathname_literal: (_$) => /\/.*/,
+    url_literal: (_$) => /https?:[^{]*/,
+    pathname_literal: (_$) => /\/[^{]*/,
 
     _declaration: ($) => choice($.constant_declaration, $.variable_declaration),
     constant_declaration: ($) =>
       seq("set", $.constant_identifier, $._expression),
-    variable_declaration: ($) => seq("let", $.identifer, "=", $._expression),
+    variable_declaration: ($) => seq("let", $.identifier, "=", $._expression),
 
-    attribute: ($) => seq("@", $.identifer, optional($.parameter_list)),
+    attribute: ($) => seq("@", $.identifier, optional($.parameter_list)),
 
     _expression: ($) =>
       choice(
         $.call,
-        $.identifer,
+        $.identifier,
         $.number,
         $.string,
         $.template_string,
@@ -38,7 +38,7 @@ module.exports = grammar({
         $.object,
         "null"
       ),
-    identifer: (_$) => /[a-z_][_\w]*/,
+    identifier: (_$) => /[a-z_][_\w]*/,
     constant_identifier: (_$) => /[A-Z_][A-Z_\d]*/,
     number: (_$) => /\d+(\.\d*)?/,
     boolean: (_$) => choice("true", "false"),
@@ -52,7 +52,7 @@ module.exports = grammar({
     object: ($) => seq("{", commaSep($.pair), "}"),
     pair: ($) =>
       seq(
-        field("key", choice($.identifer, $.string)),
+        field("key", choice($.identifier, $.string)),
         ":",
         field("value", $._expression)
       ),

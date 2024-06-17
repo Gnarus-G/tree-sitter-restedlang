@@ -20,7 +20,7 @@
           "named": true
         },
         {
-          "type": "identifer",
+          "type": "identifier",
           "named": true
         },
         {
@@ -51,7 +51,7 @@
       "required": true,
       "types": [
         {
-          "type": "identifer",
+          "type": "identifier",
           "named": true
         },
         {
@@ -105,7 +105,7 @@
           "named": true
         },
         {
-          "type": "identifer",
+          "type": "identifier",
           "named": true
         },
         {
@@ -153,7 +153,7 @@
           "named": true
         },
         {
-          "type": "identifer",
+          "type": "identifier",
           "named": true
         },
         {
@@ -204,7 +204,7 @@
           "named": true
         },
         {
-          "type": "identifer",
+          "type": "identifier",
           "named": true
         },
         {
@@ -247,7 +247,7 @@
           "named": true
         },
         {
-          "type": "identifer",
+          "type": "identifier",
           "named": true
         },
         {
@@ -298,7 +298,7 @@
           "named": true
         },
         {
-          "type": "identifer",
+          "type": "identifier",
           "named": true
         },
         {
@@ -349,7 +349,7 @@
           "named": true
         },
         {
-          "type": "identifer",
+          "type": "identifier",
           "named": true
         },
         {
@@ -412,7 +412,7 @@
         "required": true,
         "types": [
           {
-            "type": "identifer",
+            "type": "identifier",
             "named": true
           },
           {
@@ -438,7 +438,7 @@
             "named": true
           },
           {
-            "type": "identifer",
+            "type": "identifier",
             "named": true
           },
           {
@@ -486,7 +486,7 @@
           "named": true
         },
         {
-          "type": "identifer",
+          "type": "identifier",
           "named": true
         },
         {
@@ -605,7 +605,7 @@
           "named": true
         },
         {
-          "type": "identifer",
+          "type": "identifier",
           "named": true
         },
         {
@@ -648,7 +648,7 @@
           "named": true
         },
         {
-          "type": "identifer",
+          "type": "identifier",
           "named": true
         },
         {
@@ -747,7 +747,7 @@
     "named": false
   },
   {
-    "type": "identifer",
+    "type": "identifier",
     "named": true
   },
   {

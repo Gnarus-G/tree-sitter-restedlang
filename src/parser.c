@@ -28,7 +28,7 @@ enum ts_symbol_identifiers {
   anon_sym_EQ = 10,
   anon_sym_AT = 11,
   anon_sym_null = 12,
-  sym_identifer = 13,
+  sym_identifier = 13,
   sym_constant_identifier = 14,
   sym_number = 15,
   anon_sym_true = 16,
@@ -98,7 +98,7 @@ static const char * const ts_symbol_names[] = {
   [anon_sym_EQ] = "=",
   [anon_sym_AT] = "@",
   [anon_sym_null] = "null",
-  [sym_identifer] = "identifer",
+  [sym_identifier] = "identifier",
   [sym_constant_identifier] = "constant_identifier",
   [sym_number] = "number",
   [anon_sym_true] = "true",
@@ -168,7 +168,7 @@ static const TSSymbol ts_symbol_map[] = {
   [anon_sym_EQ] = anon_sym_EQ,
   [anon_sym_AT] = anon_sym_AT,
   [anon_sym_null] = anon_sym_null,
-  [sym_identifer] = sym_identifer,
+  [sym_identifier] = sym_identifier,
   [sym_constant_identifier] = sym_constant_identifier,
   [sym_number] = sym_number,
   [anon_sym_true] = anon_sym_true,
@@ -277,7 +277,7 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = false,
   },
-  [sym_identifer] = {
+  [sym_identifier] = {
     .visible = true,
     .named = true,
   },
@@ -941,12 +941,12 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
     case 59:
       ACCEPT_TOKEN(sym_url_literal);
       if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(59);
+          lookahead != '{') ADVANCE(59);
       END_STATE();
     case 60:
       ACCEPT_TOKEN(sym_pathname_literal);
       if (lookahead != 0 &&
-          lookahead != '\n') ADVANCE(60);
+          lookahead != '{') ADVANCE(60);
       END_STATE();
     case 61:
       ACCEPT_TOKEN(anon_sym_set);
@@ -985,7 +985,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 69:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == ':') ADVANCE(59);
       if (lookahead == 's') ADVANCE(70);
       if (('0' <= lookahead && lookahead <= '9') ||
@@ -994,7 +994,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 70:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == ':') ADVANCE(59);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1002,7 +1002,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 71:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 'a') ADVANCE(84);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1010,7 +1010,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('b' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 72:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 'a') ADVANCE(93);
       if (lookahead == 'o') ADVANCE(90);
       if (lookahead == 'u') ADVANCE(94);
@@ -1020,7 +1020,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('b' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 73:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 'c') ADVANCE(82);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1028,7 +1028,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 74:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 'e') ADVANCE(86);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1036,7 +1036,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 75:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 'e') ADVANCE(91);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1044,7 +1044,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 76:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 'e') ADVANCE(107);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1052,7 +1052,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 77:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 'e') ADVANCE(109);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1060,7 +1060,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 78:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 'e') ADVANCE(58);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1068,7 +1068,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 79:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 'e') ADVANCE(92);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1076,7 +1076,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 80:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 'e') ADVANCE(95);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1084,7 +1084,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 81:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 'e') ADVANCE(98);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1092,7 +1092,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 82:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 'h') ADVANCE(56);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1100,7 +1100,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 83:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 'l') ADVANCE(68);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1108,7 +1108,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 84:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 'l') ADVANCE(89);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1116,7 +1116,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 85:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 'l') ADVANCE(83);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1124,7 +1124,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 86:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 'l') ADVANCE(81);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1132,7 +1132,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 87:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 'p') ADVANCE(69);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1140,7 +1140,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 88:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 'r') ADVANCE(101);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1148,7 +1148,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 89:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 's') ADVANCE(77);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1156,7 +1156,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 90:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 's') ADVANCE(96);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1164,7 +1164,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 91:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 't') ADVANCE(50);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1172,7 +1172,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 92:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 't') ADVANCE(64);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1180,7 +1180,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 93:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 't') ADVANCE(73);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1188,7 +1188,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 94:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 't') ADVANCE(54);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1196,7 +1196,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 95:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 't') ADVANCE(62);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1204,7 +1204,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 96:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 't') ADVANCE(52);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1212,7 +1212,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 97:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 't') ADVANCE(87);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1220,7 +1220,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 98:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 't') ADVANCE(78);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1228,7 +1228,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 99:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 't') ADVANCE(97);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1236,7 +1236,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 100:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 'u') ADVANCE(85);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1244,7 +1244,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 101:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (lookahead == 'u') ADVANCE(76);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
@@ -1252,7 +1252,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
           ('a' <= lookahead && lookahead <= 'z')) ADVANCE(102);
       END_STATE();
     case 102:
-      ACCEPT_TOKEN(sym_identifer);
+      ACCEPT_TOKEN(sym_identifier);
       if (('0' <= lookahead && lookahead <= '9') ||
           ('A' <= lookahead && lookahead <= 'Z') ||
           lookahead == '_' ||
@@ -1562,7 +1562,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_let] = ACTIONS(9),
     [anon_sym_AT] = ACTIONS(11),
     [anon_sym_null] = ACTIONS(13),
-    [sym_identifer] = ACTIONS(13),
+    [sym_identifier] = ACTIONS(13),
     [sym_number] = ACTIONS(15),
     [anon_sym_true] = ACTIONS(17),
     [anon_sym_false] = ACTIONS(17),
@@ -1599,7 +1599,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_let] = ACTIONS(9),
     [anon_sym_AT] = ACTIONS(11),
     [anon_sym_null] = ACTIONS(13),
-    [sym_identifer] = ACTIONS(13),
+    [sym_identifier] = ACTIONS(13),
     [sym_number] = ACTIONS(15),
     [anon_sym_true] = ACTIONS(17),
     [anon_sym_false] = ACTIONS(17),
@@ -1636,7 +1636,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_let] = ACTIONS(39),
     [anon_sym_AT] = ACTIONS(42),
     [anon_sym_null] = ACTIONS(45),
-    [sym_identifer] = ACTIONS(45),
+    [sym_identifier] = ACTIONS(45),
     [sym_number] = ACTIONS(48),
     [anon_sym_true] = ACTIONS(51),
     [anon_sym_false] = ACTIONS(51),
@@ -1659,7 +1659,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_set,
       anon_sym_let,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
       anon_sym_true,
       anon_sym_false,
     ACTIONS(69), 14,
@@ -1687,7 +1687,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_set,
       anon_sym_let,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
       anon_sym_true,
       anon_sym_false,
     ACTIONS(73), 13,
@@ -1714,7 +1714,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_set,
       anon_sym_let,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
       anon_sym_true,
       anon_sym_false,
     ACTIONS(77), 13,
@@ -1741,7 +1741,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_set,
       anon_sym_let,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
       anon_sym_true,
       anon_sym_false,
     ACTIONS(81), 13,
@@ -1768,7 +1768,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_set,
       anon_sym_let,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
       anon_sym_true,
       anon_sym_false,
     ACTIONS(85), 13,
@@ -1795,7 +1795,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_set,
       anon_sym_let,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
       anon_sym_true,
       anon_sym_false,
     ACTIONS(89), 13,
@@ -1822,7 +1822,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_set,
       anon_sym_let,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
       anon_sym_true,
       anon_sym_false,
     ACTIONS(93), 13,
@@ -1849,7 +1849,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_set,
       anon_sym_let,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
       anon_sym_true,
       anon_sym_false,
     ACTIONS(97), 13,
@@ -1876,7 +1876,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_set,
       anon_sym_let,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
       anon_sym_true,
       anon_sym_false,
     ACTIONS(101), 13,
@@ -1903,7 +1903,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_set,
       anon_sym_let,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
       anon_sym_true,
       anon_sym_false,
     ACTIONS(105), 13,
@@ -1930,7 +1930,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_set,
       anon_sym_let,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
       anon_sym_true,
       anon_sym_false,
     ACTIONS(109), 13,
@@ -1957,7 +1957,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_set,
       anon_sym_let,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
       anon_sym_true,
       anon_sym_false,
     ACTIONS(113), 13,
@@ -1984,7 +1984,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_set,
       anon_sym_let,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
       anon_sym_true,
       anon_sym_false,
     ACTIONS(117), 13,
@@ -2024,7 +2024,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_set,
       anon_sym_let,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
       anon_sym_true,
       anon_sym_false,
   [408] = 4,
@@ -2050,7 +2050,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_set,
       anon_sym_let,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
       anon_sym_true,
       anon_sym_false,
   [438] = 4,
@@ -2076,7 +2076,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_set,
       anon_sym_let,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
       anon_sym_true,
       anon_sym_false,
   [468] = 4,
@@ -2102,7 +2102,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_set,
       anon_sym_let,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
       anon_sym_true,
       anon_sym_false,
   [498] = 4,
@@ -2128,7 +2128,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_set,
       anon_sym_let,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
       anon_sym_true,
       anon_sym_false,
   [528] = 2,
@@ -2151,7 +2151,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_set,
       anon_sym_let,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
       anon_sym_true,
       anon_sym_false,
   [553] = 4,
@@ -2176,7 +2176,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_set,
       anon_sym_let,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
       anon_sym_true,
       anon_sym_false,
   [582] = 10,
@@ -2200,7 +2200,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_pathname_literal,
     ACTIONS(155), 2,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
     STATE(20), 7,
       sym__expression,
       sym_boolean,
@@ -2228,7 +2228,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_set,
       anon_sym_let,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
       anon_sym_true,
       anon_sym_false,
   [646] = 2,
@@ -2250,7 +2250,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_set,
       anon_sym_let,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
       anon_sym_true,
       anon_sym_false,
   [670] = 2,
@@ -2272,7 +2272,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_set,
       anon_sym_let,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
       anon_sym_true,
       anon_sym_false,
   [694] = 11,
@@ -2297,7 +2297,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_false,
     ACTIONS(167), 2,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
     STATE(87), 7,
       sym__expression,
       sym_boolean,
@@ -2325,7 +2325,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_set,
       anon_sym_let,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
       anon_sym_true,
       anon_sym_false,
   [760] = 2,
@@ -2347,7 +2347,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_set,
       anon_sym_let,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
       anon_sym_true,
       anon_sym_false,
   [784] = 2,
@@ -2369,7 +2369,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_set,
       anon_sym_let,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
       anon_sym_true,
       anon_sym_false,
   [808] = 11,
@@ -2394,7 +2394,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_false,
     ACTIONS(181), 2,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
     STATE(80), 7,
       sym__expression,
       sym_boolean,
@@ -2421,7 +2421,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_false,
     ACTIONS(187), 2,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
     STATE(70), 7,
       sym__expression,
       sym_boolean,
@@ -2448,7 +2448,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_false,
     ACTIONS(193), 2,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
     STATE(54), 7,
       sym__expression,
       sym_boolean,
@@ -2470,7 +2470,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_LBRACE,
     ACTIONS(199), 2,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
     ACTIONS(203), 2,
       anon_sym_true,
       anon_sym_false,
@@ -2498,7 +2498,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_false,
     ACTIONS(213), 2,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
     STATE(17), 7,
       sym__expression,
       sym_boolean,
@@ -2523,7 +2523,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_false,
     ACTIONS(217), 2,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
     STATE(19), 7,
       sym__expression,
       sym_boolean,
@@ -2548,7 +2548,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_false,
     ACTIONS(221), 2,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
     STATE(74), 7,
       sym__expression,
       sym_boolean,
@@ -2573,7 +2573,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_false,
     ACTIONS(225), 2,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
     STATE(79), 7,
       sym__expression,
       sym_boolean,
@@ -2598,7 +2598,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_false,
     ACTIONS(229), 2,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
     STATE(73), 7,
       sym__expression,
       sym_boolean,
@@ -2623,7 +2623,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_false,
     ACTIONS(233), 2,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
     STATE(52), 7,
       sym__expression,
       sym_boolean,
@@ -2635,7 +2635,7 @@ static const uint16_t ts_small_parse_table[] = {
   [1153] = 2,
     ACTIONS(239), 4,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
       anon_sym_true,
       anon_sym_false,
     ACTIONS(237), 7,
@@ -2679,7 +2679,7 @@ static const uint16_t ts_small_parse_table[] = {
   [1209] = 2,
     ACTIONS(71), 4,
       anon_sym_null,
-      sym_identifer,
+      sym_identifier,
       anon_sym_true,
       anon_sym_false,
     ACTIONS(69), 5,
@@ -2894,7 +2894,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(19), 1,
       anon_sym_DQUOTE,
     ACTIONS(297), 1,
-      sym_identifer,
+      sym_identifier,
     ACTIONS(299), 1,
       anon_sym_RBRACE,
     STATE(77), 1,
@@ -2905,7 +2905,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(19), 1,
       anon_sym_DQUOTE,
     ACTIONS(297), 1,
-      sym_identifer,
+      sym_identifier,
     ACTIONS(301), 1,
       anon_sym_RBRACE,
     STATE(78), 1,
@@ -2934,7 +2934,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(19), 1,
       anon_sym_DQUOTE,
     ACTIONS(297), 1,
-      sym_identifer,
+      sym_identifier,
     STATE(89), 1,
       sym_pair,
     STATE(98), 1,
@@ -3074,7 +3074,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_DQUOTE,
   [1733] = 1,
     ACTIONS(357), 1,
-      sym_identifer,
+      sym_identifier,
   [1737] = 1,
     ACTIONS(359), 1,
       anon_sym_DQUOTE,
@@ -3086,7 +3086,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_LF,
   [1749] = 1,
     ACTIONS(365), 1,
-      sym_identifer,
+      sym_identifier,
   [1753] = 1,
     ACTIONS(367), 1,
       anon_sym_LF,
