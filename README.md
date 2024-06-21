@@ -4,13 +4,6 @@
 
 ## Usage (Neovim)
 
-[nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter/?tab=readme-ov-file#adding-parsers) has the full relevant instructions.
+Use the official [restedlang.nvim](https://github.com/Gnarus-G/restedlang.nvim) plugin.
 
-Clone this repo into `~/projects/tree-sitter-restedlang/`
-
-```sh
-mkdir ~/projects/tree-sitter-restedlang
-git clone https://github.com/Gnarus-G/tree-sitter-restedlang ~/projects/tree-sitter-restedlang
-```
-
-Then use the [neovim plugin](https://github.com/Gnarus-G/restedlang.nvim)
+Or, follow the instructions on how to add parsers locally from [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter/?tab=readme-ov-file#adding-parsers).
